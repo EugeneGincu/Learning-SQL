@@ -69,3 +69,4 @@ DELETE FROM person
 # DELETE FROM person   //without WHERE clause deletes all rows
 
 
+
