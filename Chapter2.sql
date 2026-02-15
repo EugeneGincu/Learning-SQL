@@ -67,6 +67,9 @@ SELECT person_id, fname, lname
 DELETE FROM person
     WHERE person_id < 1;
 # DELETE FROM person   //without WHERE clause deletes all rows
+UPDATE person
+    SET birth_date = str_to_date('DEC-21-1980' , '%b-%d-%Y')
+    WHERE person_id = 1;
 
 
 
