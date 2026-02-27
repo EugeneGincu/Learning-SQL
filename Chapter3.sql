@@ -21,3 +21,19 @@ SELECT concat(cust.last_name, ', ', cust.first_name) full_name
          FROM customer
          WHERE first_name = 'JESSIE'
          ) cust;
+CREATE TEMPORARY TABLE actors_j
+    (actor_id smallint(5),
+    first_name varchar(45),
+    last_name varchar(45)
+    );
+INSERT INTO actors_j
+    SELECT actor_id, first_name, last_name
+    FROM actor
+    WHERE last_name LIKE 'J%';
+SELECT * FROM actors_j;
+CREATE VIEW cust_vw AS
+    SELECT customer_id, first_name, last_name, active
+    FROM customer;
+SELECT first_name, last_name
+    FROM cust_vw
+    WHERE active = 0;
