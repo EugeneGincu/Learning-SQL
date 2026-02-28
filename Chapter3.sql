@@ -37,3 +37,15 @@ CREATE VIEW cust_vw AS
 SELECT first_name, last_name
     FROM cust_vw
     WHERE active = 0;
+SELECT customer.first_name, customer.last_name,
+        time(rental.rental_date) rental_time
+    FROM customer
+        INNER JOIN rental
+        ON customer.customer_id = rental.customer_id
+    WHERE date(rental.rental_date) = '2005-06-14';
+SELECT c.first_name, c.last_name,
+       time(r.rental_date) rental_time
+    FROM customer c
+        INNER JOIN rental AS r      #optional AS for table alias
+        ON c.customer_id = r.customer_id
+    WHERE date(r.rental_date) = '2005-06-14';
