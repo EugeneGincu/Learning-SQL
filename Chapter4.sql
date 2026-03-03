@@ -20,3 +20,7 @@ SELECT customer_id, rental_date
 SELECT customer_id, payment_date, amount
     FROM payment
     WHERE amount BETWEEN 10.0 AND 11.99;
+SELECT last_name, first_name
+    FROM customer
+    WHERE last_name BETWEEN 'FA' AND 'FR';#"FRANKLIN" not included in FR, use FRB
+
