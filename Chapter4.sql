@@ -23,4 +23,43 @@ SELECT customer_id, payment_date, amount
 SELECT last_name, first_name
     FROM customer
     WHERE last_name BETWEEN 'FA' AND 'FR';#"FRANKLIN" not included in FR, use FRB
-
+SELECT title, rating
+    FROM film
+    WHERE rating = 'G' OR rating = 'PG';
+SELECT title, rating
+    FROM film
+    WHERE rating IN ('G', 'PG');
+SELECT title, rating
+    FROM film
+    WHERE rating IN (SELECT rating FROM film WHERE title LIKE '%PET%');
+SELECT title, rating
+    FROM film
+    WHERE rating NOT IN ('PG-13', 'R', 'NC-17');
+SELECT last_name, first_name
+    FROM customer
+    WHERE left(last_name, 1) = 'Q';
+SELECT last_name, first_name
+    FROM customer
+    WHERE last_name LIKE '_A_T%S';
+SELECT last_name, first_name
+    FROM customer
+    WHERE last_name LIKE 'Q%' OR last_name LIKE 'Y%';3
+SELECT last_name, first_name
+    FROM customer
+    WHERE last_name REGEXP '^[QY]';
+SELECT rental_id, customer_id
+    FROM rental
+    WHERE return_date IS NULL;
+SELECT rental_id, customer_id
+    FROM rental
+    WHERE return_date = NULL;
+SELECT rental_id, customer_id, return_date
+    FROM rental
+    WHERE return_date IS NOT NULL;
+SELECT rental_id, customer_id, return_date
+    FROM rental
+    WHERE return_date NOT BETWEEN '2005-05-01' AND '2005-09-01';
+SELECT rental_id, customer_id, return_date
+    FROM rental
+    WHERE return_date IS NULL
+    OR return_date NOT BETWEEN '2005-05-01' AND '2005-09-01';
