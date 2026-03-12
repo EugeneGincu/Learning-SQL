@@ -52,7 +52,7 @@ SELECT rental_id, customer_id
     WHERE return_date IS NULL;
 SELECT rental_id, customer_id
     FROM rental
-    WHERE return_date = NULL;
+    WHERE return_date = NULL; # NULL value is NULL but not = NULL
 SELECT rental_id, customer_id, return_date
     FROM rental
     WHERE return_date IS NOT NULL;
