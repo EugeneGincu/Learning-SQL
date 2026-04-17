@@ -14,15 +14,15 @@ SELECT actor_id,
 SELECT version() version, #or column AS alias, column alias renames the columns
        user() user,
        database() database_name;
-SELECT DISTINCT actor_id   #distinct is a set so removes duplicates
+SELECT DISTINCT actor_id   #select distinct is a set (removes duplicates) and applies to all columns, cannot apply to just one
     FROM film_actor
     ORDER BY actor_id;
 SELECT ALL actor_id   #ALL is default
     FROM film_actor
     ORDER BY actor_id;
-SELECT concat(cust.last_name, ', ', cust.first_name) full_name
+SELECT concat(cust.last_name, ', ', cust.first_name) full_name   #containing query
     FROM
-        (SELECT first_name, last_name, email        #subquery (parentheses) in FROM is derived table
+        (SELECT first_name, last_name, email        #derived table/subquery (parentheses) in FROM is derived table
          FROM customer
          WHERE first_name = 'JESSIE'
          ) cust;
