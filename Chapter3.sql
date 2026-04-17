@@ -2,14 +2,19 @@ USE sakila;
 SHOW TABLES;
 SELECT *
     FROM actor;
+SELECT language_id,				
+		'COMMON' language_usage, # or 'COMMON' AS language_usage,'value' column creates a new column with 'value' for all values
+		language_id * 3.1415927 lang_pi_value,
+		upper(name) language_name
+	FROM language;
 SELECT actor_id,
        'PENELOPE' name,
        LOWER(last_name) AS last_name  #optional AS keyword column alias
     FROM actor;
-SELECT version() version,
+SELECT version() version, #or column AS alias, column alias renames the columns
        user() user,
        database() database_name;
-SELECT DISTINCT actor_id   #distinct set removes duplicates
+SELECT DISTINCT actor_id   #distinct is a set so removes duplicates
     FROM film_actor
     ORDER BY actor_id;
 SELECT ALL actor_id   #ALL is default
