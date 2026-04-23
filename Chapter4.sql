@@ -16,7 +16,7 @@ SELECT customer_id, rental_date
         AND rental_date >= '2005-06-14';
 SELECT customer_id, rental_date
     FROM rental
-    WHERE rental_date BETWEEN '2005-06-14' AND '2005-06-16'; #BETWEEN lower limit AND upper limit evaluates to rental_date <= '2005-06-16'AND rental_date >= '2005-06-14'
+    WHERE rental_date BETWEEN '2005-06-14' AND '2005-06-16'; #BETWEEN a lower limit AND an upper limit evaluates to rental_date <= '2005-06-16'AND rental_date >= '2005-06-14'
 SELECT customer_id, payment_date, amount
     FROM payment
     WHERE amount BETWEEN 10.0 AND 11.99;
